@@ -1,10 +1,117 @@
-body {
-  background: #121214;
-  color: #e1e1e6;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.tweet {
-  padding: 16px;
-  border: 1px solid #ccc;
-  margin: 12px;
+:root {
+  --twitter-blue: #1da1f2;
+}
+
+body {
+  background: #0f1419;
+  color: #e1e1e6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+  font: 400 1rem 'Roboto', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+/* Page: TimeLine */
+
+.layout{
+  margin: 0 auto;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.content {
+  border-left: 1px solid #2F2F2F;
+  border-right: 1px solid #2F2F2F;
+}
+
+.timeline-header {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: 1px solid #2F2F2F;
+}
+
+.timeline-header svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--twitter-blue);
+}
+
+.new-tweet-form {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.new-tweet-form  label {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.new-tweet-form label img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
+
+.new-tweet-form label textarea {
+  background: #0f1419;
+  color: #E1E1E6;
+  flex: 1;
+  border: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  resize: none;
+}
+
+.new-tweet-form label textarea:focus {
+  outline: none;
+}
+
+.new-tweet-form label textarea:focus::placeholder {
+  color: #828282;
+}
+
+.new-tweet-form button[type=submit] {
+  margin-left: auto;
+  background: var(--twitter-blue);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  border: 0;
+}
+
+.new-tweet-form button[type=submit]:hover {
+  filter: brightness(0.9);
+}
+
+.separator {
+  background: #202020;
+  border-top: 1px solid #2F2F2F;
+  border-bottom: 1px solid #2F2F2F;
+  height: 0.75rem;
 }

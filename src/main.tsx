@@ -1,24 +1,43 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Tweet } from './components/Tweet'
+import { Sparkle } from 'phosphor-react'
 
 import './global.css';
+import { Tweet } from './components/Tweet';
+import { Sidebar } from './components/Sidebar';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <div>
-      <Tweet user="Alexandre" like={10}>
-        Meu primerio tweet
-      </Tweet>
+    <div className="layout">
+      <Sidebar />
+      
+      <div className="content">
+        <main className="timeline">
+          <div className="timeline-header">
+            Home
+            <Sparkle />
+          </div>
 
-      <Tweet user="Joycy" >
-        hello world"
-      </Tweet>
+          <form className="new-tweet-form">
+            <label htmlFor="tweet">
+              <img
+                src="https://github.com/allesoares95.png"
+                alt="Alexandre Soares"
+              />
 
-      <Tweet user="José" >
-        Testando tweet"
-      </Tweet>
+              <textarea id="tweet" placeholder="What's happening?" />
+            </label>
 
+            <button type="submit">Tweet</button>
+
+          </form>
+
+          <div className="separator" />
+
+          <Tweet />
+          <Tweet />
+        </main>
+      </div>
     </div>
   </React.StrictMode>,
 )
