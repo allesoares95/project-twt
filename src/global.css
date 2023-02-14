@@ -25,18 +25,3 @@ button {
 a {
   color: inherit;
 }
-
-/* Page: TimeLine */
-
-.layout{
-  margin: 0 auto;
-  max-width: 1000px;
-
-  display: grid;
-  grid-template-columns: 300px 1fr;
-}
-
-.content {
-  border-left: 1px solid #2F2F2F;
-  border-right: 1px solid #2F2F2F;
-}

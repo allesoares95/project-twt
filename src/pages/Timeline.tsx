@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, useState } from "react";
 import { Header } from "../components/Header";
 import { Separator } from "../components/Separator";
 import { Tweet } from "../components/Tweet";
@@ -8,7 +8,7 @@ export function Timeline() {
   const [newTweet, setNewTweet] = useState('')
 
   const [tweets, setTweets] = useState([
-    'Meu primeiro tweets',
+    'Se você quer se destacar no universo da programação web, é importante manter-se atualizado com as últimas tendências e tecnologias.',
     'Teste',
     'Deu certo tweetar!'
   ])
@@ -18,6 +18,13 @@ export function Timeline() {
     
     setTweets([newTweet, ...tweets]);
     setNewTweet('')
+  }
+
+  function handleHotkeySubmit(event: KeyboardEvent) {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      setTweets([newTweet, ...tweets]);
+    setNewTweet('')
+    }
   }
 
   return (
@@ -35,6 +42,7 @@ export function Timeline() {
             id="tweet" 
             placeholder="What's happening?" 
             value={newTweet}
+            onKeyDown={handleHotkeySubmit}
             onChange={(event) => {
               setNewTweet(event.target.value)
             }}
